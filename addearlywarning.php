@@ -18,19 +18,18 @@ if (isset($_POST['submit'])) {
  	$source = $_POST["source"];
  	$confidence = $_POST["confidence"];
  	$narrative = mysqli_real_escape_string($connection,$_POST["narrative"]);
-
  	$timestamp = strtotime(substr($period,0,2).'/1/'.substr($period,3));
- 	$sqldate = date('Y-m-d H:i:s',$timestamp);
+	$sqldate = date('M - Y',$timestamp);
+	$timestamp2 = strtotime(substr($lastupdate,0,2).'/1/'.substr($lastupdate,3));
+	$sqldate2 = date('M - Y',$timestamp2);
 
- 	$timestamp2 = strtotime(substr($lastupdate,0,2).'/1/'.substr($lastupdate,3));
- 	$sqldate2 = date('Y-m-d H:i:s',$timestamp2);
- 	
+
 
  	$query = "INSERT INTO earlywarning(region,country,period,last_updated,source,confidencelevel,narrative,catid,indicatorid,possibleanswer_id)
 			 VALUES('{$region}','{$country}','{$sqldate}','{$sqldate2}','{$source}','{$confidence}','{$narrative}',{$category},{$indicator},{$possible_answer})";
 
 
-$addwarning = mysqli_query($connection,$query);
+	$addwarning = mysqli_query($connection,$query);
 
 	if (!$addwarning) {
 	 			die('query failed'.mysqli_error($connection));
@@ -224,10 +223,10 @@ $addwarning = mysqli_query($connection,$query);
 						                      	<td>Confidence Level</td>
 						                        <td><label class="col-md-10 control-label lbl" data-id="confidence"></label></td>
 						                      </tr>
-						                      <!-- <tr>
+						                      <tr>
 						                      	<td>Narrative</td>
-						                        <td><label class="col-md-10 control-label lbl" data-id="narrative"></label></td>
-						                      </tr> -->
+						                        <td><label class="col-md-10 control-label lbl" data-id="narrative" ></label></td>
+						                      </tr>
 						                    </tbody>
 						                    <tfoot>
 						                    </tfoot>

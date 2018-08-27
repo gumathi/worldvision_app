@@ -33,9 +33,8 @@ if (isset($_POST['editpeople'])) {
 	$updateperiod=$_POST['add-date'];
 	$update_category_of_people=$_POST['update_category_of_people'];
 	$update_people_in_need=$_POST['update_people_in_need'];
-
 	$timestamp = strtotime(substr($updateperiod,0,2).'/1/'.substr($updateperiod,3));
-	$sqldate = date('Y-m-d H:i:s',$timestamp);
+	$sqldate = date('M - Y',$timestamp);
 
 
 	$query = "UPDATE people SET

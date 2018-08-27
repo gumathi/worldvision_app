@@ -55,7 +55,7 @@ if (isset($_POST['update_beneficiary'])) {
 	$updatenfooditems=$_POST['nfooditems'];
 
 	$timestamp = strtotime(substr($updatedate,0,2).'/1/'.substr($updatedate,3));
-	$sqldate = date('Y-m-d H:i:s',$timestamp);
+	$sqldate = date('M - Y',$timestamp);
 
 
 	$query = "UPDATE beneficiaries SET
@@ -113,16 +113,16 @@ if (isset($_POST['update_beneficiary'])) {
                 <div class="box-body">
 
                 			<section class="content-header">
-	          <h1>
-	            Edit Beneficiary Form <?php echo "  Number ".$id ?><br>
-	            <small><a href="viewbeneficiary.php">View beneficiary form</small>
-	          </h1>
-	          <ol class="breadcrumb">
-	            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-	            <li class="viewbeneficiary.php">View Beneficiary</li>
-	            <li class="editbeneficiary.php">Edit Beneficiary</li>
-	          </ol>
-        </section>
+						          <h1>
+						            Edit Beneficiary Form <?php echo "  Number ".$id ?><br>
+						            <small><a href="viewbeneficiary.php">View beneficiary form</small>
+						          </h1>
+						          <ol class="breadcrumb">
+						            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+						            <li class="viewbeneficiary.php">View Beneficiary</li>
+						            <li class="editbeneficiary.php">Edit Beneficiary</li>
+						          </ol>
+					        </section>
 
 		<hr> 
 
@@ -177,8 +177,15 @@ if (isset($_POST['update_beneficiary'])) {
 											<div class="form-group">
 								                <label>Period</label>
 
-											            <div class="input-group date">
+											            <!-- <div class="input-group date">
 											                <input type="text" class="form-control required" id="add-ben-date" name="add-ben-date" value="<?php echo $date ?>">
+											                <div class="input-group-addon">
+											                    <span class="glyphicon glyphicon-th"></span>
+											                </div>
+											            </div> -->
+
+											            <div class="input-group date">
+											                <input type="text" class="form-control required" id="add-ben-date" name="add-ben-date"  placeholder="Enter beneficiary period" value="<?php echo $date ?>">
 											                <div class="input-group-addon">
 											                    <span class="glyphicon glyphicon-th"></span>
 											                </div>
@@ -263,7 +270,7 @@ if (isset($_POST['update_beneficiary'])) {
 						                      </tr>
 						                      <tr>
 						                      	<td>Period</td>
-						                        <td><label class="col-md-10 control-label lbl" data-id="date"></label></td>
+						                        <td><label class="col-md-10 control-label lbl" data-id="add-ben-date"></label></td>
 						                      </tr>
 						                      <tr>
 						                      	<td>Food Security and Livelihood</td>

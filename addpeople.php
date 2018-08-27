@@ -15,8 +15,11 @@ if (isset($_POST['addpeople'])) {
 	$period=$_POST['add-date'];
 	$category_of_people=$_POST['category_of_people'];
 	$people_in_need=$_POST['people_in_need'];
+	// $timestamp = strtotime(substr($period,0,2).'/1/'.substr($period,3));
+	// $sqldate = date('Y-m-d H:i:s',$timestamp);
+
 	$timestamp = strtotime(substr($period,0,2).'/1/'.substr($period,3));
-	$sqldate = date('Y-m-d H:i:s',$timestamp);
+	$sqldate = date('M - Y',$timestamp);
 
 	$query = "INSERT INTO people(
 			  region,

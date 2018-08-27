@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
 			        <hr>
 
 
-					<form class="form-horizontal form" method="post" role="form">
+					<form class="form-horizontal form" method="post" role="form" id="add_funding">
                   		<div class="box-body">
 
                   							<div class="form-group">

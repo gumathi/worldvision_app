@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 			// $update_earlywarningid = $row["earlywarningId"];
 			$update_region = $_POST["region"];
 			$update_country = $_POST["country"];
-			$update_period = $_POST["add-date"];
+			$update_period = $_POST["update-earlywarning-date"];
 			$update_last_updated = $_POST["last-update"];
 			$update_source = $_POST["source"];
 			$update_confidencelevel = $_POST["confidence"];
@@ -52,10 +52,13 @@ if (isset($_POST['submit'])) {
 			$update_indicatorid = $_POST["ewindicator"];
 			$update_possibleanswerId = $_POST["pa"];
 			$update_narrative = mysqli_real_escape_string($connection,$_POST["narrative"]);
+
+
 			$timestamp = strtotime(substr($update_period,0,2).'/1/'.substr($update_period,3));
-			$update_sqldate1 = date('Y-m-d H:i:s',$timestamp);
+			$update_sqldate1 = date('M - Y',$timestamp);
+
 			$timestamp1 = strtotime(substr($update_last_updated,0,2).'/1/'.substr($update_last_updated,3));
-			$update_sqldate2 = date('Y-m-d H:i:s',$timestamp);
+			$update_sqldate2 = date('M - Y',$timestamp1);
 
 
 			
@@ -170,7 +173,7 @@ if (isset($_POST['submit'])) {
 								                <label>Period</label>
 
 											            <div class="input-group date">
-											                <input type="text" class="form-control required" id="add-date" name="add-date"  placeholder="Enter beneficiary period" value="<?php echo $period?>">
+											                <input type="text" class="form-control required" id="update-earlywarning-date" name="update-earlywarning-date"  placeholder="Enter beneficiary period" value="<?php echo $period?>">
 											                <div class="input-group-addon">
 											                    <span class="glyphicon glyphicon-th"></span>
 											                </div>
@@ -256,7 +259,7 @@ if (isset($_POST['submit'])) {
 						                      </tr>
 						                      <tr>
 						                      	<td>Period</td>
-						                        <td><label class="col-md-10 control-label lbl" data-id="add-date"></label></td>
+						                        <td><label class="col-md-10 control-label lbl" data-id="update-earlywarning-date"></label></td>
 						                      </tr>
 						                      <tr>
 						                      	<td>Categories</td>

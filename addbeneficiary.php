@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
 	$nfooditems = $_POST["nfooditems"];
 
 	$timestamp = strtotime(substr($date,0,2).'/1/'.substr($date,3));
-	$sqldate = date('Y-m-d H:i:s',$timestamp);
+	$sqldate = date('M - Y',$timestamp);
 
 
 
